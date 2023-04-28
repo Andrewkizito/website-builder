@@ -116,11 +116,11 @@ const TextEditor: React.FC<TextEditorProps> = (props) => {
 			</label>
 			<div className="mt-4">
 				<ReactQuill
-					ref={(el) => (quill.current = el)}
+					ref={(el: any) => (quill.current = el)}
 					theme="snow"
 					placeholder={'Start from here..'}
 					value={props.value}
-					onChange={(newValue) => props.setValue(newValue)}
+					onChange={(newValue: any) => props.setValue(newValue)}
 					formats={formats}
 					modules={modules}
 					readOnly={readOnly || props.readOnly}

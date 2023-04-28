@@ -50,14 +50,14 @@ const Login = () => {
 						darkMode ? 'text-gray-50 font-normal' : 'text-gray-900 font-medium'
 					}`}
 				>
-					Login
+					Register
 				</h2>
 				<h3
 					className={`text-lg font-semibold ${
 						darkMode ? 'text-gray-100 font-normal' : 'text-gray-600 font-medium'
 					}`}
 				>
-					Sign into your account
+					Create A New Account
 				</h3>
 				<p
 					className={`max-w-lg text-sm mt-4 mb-8 ${
