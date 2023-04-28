@@ -37,6 +37,10 @@ const routes: AppRoute[] = [
 			},
 			{
 				component: <ResetPassword />,
+				path: 'register',
+			},
+			{
+				component: <ResetPassword />,
 				path: 'forgot-password',
 			},
 			{

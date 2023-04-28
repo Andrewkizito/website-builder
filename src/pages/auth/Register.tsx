@@ -5,16 +5,13 @@ import { toast } from 'react-toastify'
 import { useContext, useState } from 'react'
 
 // Importing core components
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { Spinner } from 'react-activity'
 import Fade from 'react-reveal/Fade'
 import Button from 'components/ui/Button'
 import TextInput from 'components/modules/TextInput'
 
-const Login = () => {
-	// Navigation
-	const navigate = useNavigate()
-
+const Register = () => {
 	// User Context
 	const { setUser } = useContext(CurrentUserContext)
 
@@ -23,6 +20,7 @@ const Login = () => {
 
 	// Form state
 	const [username, setName] = useState<string>('')
+	const [email, setEmail] = useState<string>('')
 	const [password, setPassword] = useState<string>('')
 
 	// UI State
@@ -32,10 +30,17 @@ const Login = () => {
 	async function submit() {
 		setLoading(true)
 		try {
-			const res = await Auth.signIn({ username: username, password: password })
+			const res = await Auth.signUp({
+				username: username,
+				password: password,
+				attributes: {
+					email: email,
+				},
+				autoSignIn: {
+					enabled: true,
+				},
+			})
 			setUser(res)
-			if (res.challengeName === 'NEW_PASSWORD_REQUIRED')
-				navigate('/confirm-account')
 		} catch (error: any) {
 			toast.error(error.message)
 		}
@@ -76,6 +81,14 @@ const Login = () => {
 					setValue={(val) => setName(val)}
 				/>
 				<TextInput
+					label="Email"
+					placeholder="Your email"
+					value={password}
+					type="email"
+					disabled={loading}
+					setValue={(val) => setEmail(val)}
+				/>
+				<TextInput
 					label="Password"
 					placeholder="Your password"
 					value={password}
@@ -112,4 +125,4 @@ const Login = () => {
 	)
 }
 
-export default Login
+export default Register

@@ -95,18 +95,33 @@ const Login = () => {
 						) : null
 					}
 				/>
-				<NavLink to={'/forgot-password'}>
-					<h4
-						className={`font-semibold text-sm  text-center mt-4 ${
-							darkMode
-								? 'text-gray-200 font-medium'
-								: 'text-gray-700 font-medium'
-						}`}
-					>
-						Forgot your password?{' '}
-						<span className={'text-primary cursor-pointer'}>Click Here</span>
-					</h4>
-				</NavLink>
+
+				<div className="flex justify-between items-center">
+					<NavLink to={'/forgot-password'}>
+						<h4
+							className={`font-semibold text-sm  text-center mt-4 ${
+								darkMode
+									? 'text-gray-200 font-medium'
+									: 'text-gray-700 font-medium'
+							}`}
+						>
+							Forgot your password?{' '}
+							<span className={'text-primary cursor-pointer'}>Click Here</span>
+						</h4>
+					</NavLink>
+					<NavLink to={'/register'}>
+						<h4
+							className={`font-semibold text-sm  text-center mt-4 ${
+								darkMode
+									? 'text-gray-200 font-medium'
+									: 'text-gray-700 font-medium'
+							}`}
+						>
+							Have no account, register?{' '}
+							<span className={'text-primary cursor-pointer'}>Here</span>
+						</h4>
+					</NavLink>
+				</div>
 			</div>
 		</Fade>
 	)
